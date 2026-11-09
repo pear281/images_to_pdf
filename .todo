@@ -1,0 +1,13 @@
+TO DO:
+    write README;
+    add description and improve --help;
+
+BUGS TO FIX:
+    it doesn't work with .png (insanely decreases resolution);
+
+FLAGS TO IMPLEMENT:
+    --file -f SEVERAL_IMAGES_TO_CONVERT - to specify files to convert;
+    --verbose -v - to enable verbose mod;
+
+FUTURE:
+    idk add some functional;

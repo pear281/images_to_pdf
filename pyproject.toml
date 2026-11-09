@@ -4,15 +4,16 @@ version = "0.1.0"
 description = "A simpleinstrument for making one pdf file from several images"
 readme = "README.md"
 authors = [
-    { name = "pear252", email = "<>" }
+    { name = "pear281", email = "<>" }
 ]
 requires-python = ">=3.13"
 dependencies = [
     "pillow>=13.0.0",
+    "typer>=0.28.0",
 ]
 
 [project.scripts]
-images-to-pdf = "images_to_pdf:main"
+images-to-pdf = "images_to_pdf.cli:app"
 
 [build-system]
 requires = ["uv_build>=0.13.6,<0.14.0"]
