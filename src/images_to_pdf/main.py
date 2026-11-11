@@ -1,18 +1,24 @@
-from PIL import Image
+from PIL import Image, ImageFile
 from datetime import datetime
-import os
 from pathlib import Path
 
 suitable_image_extensions = ('.jpeg', '.jpg', '.png', '.gif', '.webp')
 
-def save_pdf(out_path, images):
+def save_pdf(out_path: str | Path, images: list[ImageFile.ImageFile]):
+    # Images with transparency (such as PNGs in RGBA mode)
+    # must be converted to RGB first to prevent errors.
+    images_RGB: list[ImageFile.ImageFile] = []
+    for image in images:
+        if image.mode in ("RGBA", "P"):
+            images_RGB.append(image.convert("RGB"))
+        else:
+            images_RGB.append(image)
     try:
-        images[0].save(out_path, 'PDF', resolution=100.0, save_all=True, append_images=images[1:])
+        images_RGB[0].save(out_path, 'PDF', dpi=(300,300), save_all=True, append_images=images_RGB[1:])
     except IndexError:
         print("Error:\nNo files to convert.")
 
 def make_out_path():
-    # date_time = str(datetime.now()).replace(':', '_').replace(' ', '_')[:-7]
     date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_name = f"{date_time}.pdf"
     return out_name

@@ -3,11 +3,11 @@ TO DO:
     add description and improve --help;
 
 BUGS TO FIX:
-    it doesn't work with .png (insanely decreases resolution);
+    images of different dimesnsions must be alligned (maybe by choice);
 
 FLAGS TO IMPLEMENT:
     --file -f SEVERAL_IMAGES_TO_CONVERT - to specify files to convert;
-    --verbose -v - to enable verbose mod;
+    --verbose -v - to enable verbose mode;
 
 FUTURE:
     idk add some functional;
